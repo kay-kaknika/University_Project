@@ -49,6 +49,13 @@ app.use('/auth', (req, res) => {
     proxy.web(req, res, { target: 'http://localhost:5003' });
 })
 
+//REDIRECT TO THE REGISTRATION MICROSERVICE
+app.use('/register', (req, res) => {
+    proxy.web(req, res, {
+        target: 'http://localhost:5002'
+    });
+});
+
 app.listen(4000, () => {
     console.log("API Gateway Service is running on PORT NO : 4000")
 })
